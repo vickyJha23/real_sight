@@ -114,3 +114,23 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* The 3D particle wave rolls along the bottom of the section, under the content. */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.contact-section > .container {
+  position: relative;
+  z-index: 1;
+}
+.contact-wave {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 0;
+  width: 100%;
+  height: 55%;
+  pointer-events: none;
+  mask-image: linear-gradient(transparent, #000 60%);
+}

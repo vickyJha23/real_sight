@@ -10,12 +10,16 @@ export const MOTION_OK = '(prefers-reduced-motion: no-preference)'
 
 export const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-/** Fades elements up into place, staggered, as `trigger` scrolls into view. */
+/** Fades elements up into place, tipping forward in 3D, staggered, as `trigger` scrolls into view. */
 export function fadeUp(targets: gsap.TweenTarget, trigger: Element | string | null, stagger = 0.08) {
   if (!trigger) return
   gsap.from(targets, {
-    y: 24,
+    y: 32,
     opacity: 0,
+    rotateX: 18,
+    transformPerspective: 900,
+    transformOrigin: '50% 100%',
+    duration: 0.9,
     stagger,
     scrollTrigger: { trigger, start: 'top 88%' },
   })

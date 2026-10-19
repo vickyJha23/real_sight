@@ -48,9 +48,21 @@ export function Features() {
   const root = useRef<HTMLElement>(null)
 
   useGsap(root, () => {
-    gsap.utils.toArray<HTMLElement>('.feature').forEach((f) => {
+    gsap.utils.toArray<HTMLElement>('.feature').forEach((f, i) => {
+      // Visuals sit on alternating sides, so each swings in from its own edge.
+      const side = i % 2 === 0 ? 1 : -1
+      const visual = f.querySelector('.feature-visual')
       gsap.from(f.querySelectorAll('.feature-copy > *'), { y: 24, opacity: 0, stagger: 0.07, scrollTrigger: { trigger: f, start: 'top 80%' } })
-      gsap.from(f.querySelector('.feature-visual'), { y: 40, opacity: 0, duration: 1, scrollTrigger: { trigger: f, start: 'top 80%' } })
+      gsap.from(visual, { opacity: 0, duration: 1, scrollTrigger: { trigger: f, start: 'top 80%' } })
+      // The visual turns like a card in space: angled on the way in, flat mid-screen, tipping away on the way out.
+      gsap
+        .timeline({ scrollTrigger: { trigger: f, start: 'top bottom', end: 'bottom top', scrub: 0.6 } })
+        .fromTo(
+          visual,
+          { rotateY: -28 * side, rotateX: 10, z: -120, transformPerspective: 1400 },
+          { rotateY: 0, rotateX: 0, z: 0, ease: 'power1.out' },
+        )
+        .to(visual, { rotateY: 10 * side, rotateX: -6, ease: 'power1.in' })
     })
   })
 

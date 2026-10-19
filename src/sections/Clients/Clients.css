@@ -20,11 +20,32 @@
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #9aa1b0;
+  color: var(--soft-names);
   transition: color 0.2s;
 }
 .clients-names li:hover {
   color: var(--text);
+}
+
+/* With motion allowed, the names stand on a ring that turns in 3D (positions set in Clients.tsx). */
+.clients-stage {
+  perspective: 1400px;
+}
+.clients-names.is-ring {
+  position: relative;
+  display: block;
+  height: 64px;
+  margin-top: 16px;
+  transform-style: preserve-3d;
+}
+.clients-names.is-ring li {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  white-space: nowrap;
+  font-size: clamp(16px, 1.8vw, 21px);
+  color: var(--muted);
+  will-change: transform, opacity;
 }
 
 .stats {

@@ -12,8 +12,8 @@
   left: 16px;
   top: -60px;
   z-index: 100;
-  background: var(--text);
-  color: #fff;
+  background: var(--ink);
+  color: var(--ink-text);
   padding: 10px 16px;
   border-radius: 8px;
 }

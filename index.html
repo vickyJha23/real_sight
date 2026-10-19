@@ -1,21 +1,83 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" />
+    <!-- Apply the saved theme (or the OS setting) before first paint, so dark mode never flashes white. -->
+    <script>
+      (function () {
+        var t
+        try {
+          t = localStorage.getItem('theme')
+        } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = t
+        document.querySelector('meta[name="theme-color"]').content = t === 'dark' ? '#0b0f1a' : '#ffffff'
+      })()
+    </script>
     <title>Real Sight: Custom websites for growing businesses</title>
     <meta
       name="description"
       content="Real Sight designs and builds fast, custom websites for manufacturers, coaching institutes, brands and online stores across India. See our recent work."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <!-- TODO: realsight.in is assumed from the placeholder email; change every https://realsight.in below (and in public/robots.txt, public/sitemap.xml) if the live domain differs. -->
+    <link rel="canonical" href="https://realsight.in/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Real Sight" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://realsight.in/" />
     <meta property="og:title" content="Real Sight: Custom websites for growing businesses" />
     <meta
       property="og:description"
       content="Fast, custom websites for factories, institutes, brands and online stores. See what we've launched recently."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://realsight.in/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Real Sight: custom websites for growing businesses" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Real Sight: Custom websites for growing businesses" />
+    <meta
+      name="twitter:description"
+      content="Fast, custom websites for factories, institutes, brands and online stores. See what we've launched recently."
+    />
+    <meta name="twitter:image" content="https://realsight.in/og-image.jpg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://realsight.in/#business",
+            "name": "Real Sight",
+            "description": "Web design and development studio building fast, custom websites for manufacturers, coaching institutes, brands and online stores.",
+            "url": "https://realsight.in/",
+            "logo": "https://realsight.in/favicon.svg",
+            "image": "https://realsight.in/og-image.jpg",
+            "email": "hello@realsight.in",
+            "telephone": ["+917020197056", "+918830431616"],
+            "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" },
+            "areaServed": { "@type": "Country", "name": "India" },
+            "knowsAbout": ["Website design", "Web development", "E-commerce websites", "Search engine optimisation"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://realsight.in/#website",
+            "url": "https://realsight.in/",
+            "name": "Real Sight",
+            "inLanguage": "en-IN",
+            "publisher": { "@id": "https://realsight.in/#business" }
+          }
+        ]
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

@@ -1,9 +1,11 @@
-import { useRef, useState, type FormEvent } from 'react'
+import { lazy, Suspense, useRef, useState, type FormEvent } from 'react'
 import { Icon } from '../../components/Icon/Icon'
 import { site, telHref } from '../../data/site'
 import { useGsap } from '../../hooks/useGsap'
 import { fadeUp } from '../../lib/motion'
 import './Contact.css'
+
+const WaveCanvas = lazy(() => import('./WaveCanvas').then((m) => ({ default: m.WaveCanvas })))
 
 function whatsappMessage(form: HTMLFormElement) {
   const data = new FormData(form)
@@ -32,7 +34,10 @@ export function Contact() {
   }
 
   return (
-    <section ref={root} className="section" id="contact">
+    <section ref={root} className="section contact-section" id="contact">
+      <Suspense fallback={null}>
+        <WaveCanvas />
+      </Suspense>
       <div className="container">
         <div className="contact">
           <div className="contact-info">

@@ -36,6 +36,18 @@ export function Hero() {
       { rotateX: 14, scale: 0.95 },
       { rotateX: 0, scale: 1, ease: 'none', scrollTrigger: { trigger: '.hero-stage', start: 'top 90%', end: 'top 30%', scrub: true } },
     )
+
+    // With a mouse, the mockups turn gently toward the pointer (rotateY only; scroll owns rotateX).
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    const turn = gsap.quickTo('.hero-stage-inner', 'rotateY', { duration: 1, ease: 'power3.out' })
+    const shift = gsap.quickTo('.hero-stage-inner', 'x', { duration: 1, ease: 'power3.out' })
+    const onMove = (e: PointerEvent) => {
+      const x = e.clientX / window.innerWidth - 0.5
+      turn(x * 10)
+      shift(x * -16)
+    }
+    window.addEventListener('pointermove', onMove)
+    return () => window.removeEventListener('pointermove', onMove)
   })
 
   const current = featured[active]
@@ -52,7 +64,7 @@ export function Hero() {
         <div className="hero-copy">
           <a href="#work" className="hero-badge">
             <span className="hero-badge-tag">New</span>
-            {projects.length} websites launched this year
+            100+ websites launched this week
             <Icon name="arrowUpRight" size={14} />
           </a>
           <h1>

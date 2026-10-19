@@ -29,12 +29,12 @@
   border-color: var(--faint);
 }
 .chip.is-active {
-  background: var(--text);
-  border-color: var(--text);
-  color: #fff;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ink-text);
 }
 .chip.is-active span {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ink-muted);
 }
 
 .work-grid {
@@ -58,6 +58,24 @@
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: box-shadow 0.3s, border-color 0.3s;
+}
+/* Glare that follows the pointer while useTilt tips the card. */
+.work-thumb::after,
+.package::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.28), transparent 55%);
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.work-thumb:hover::after,
+.package:hover::after {
+  opacity: 1;
 }
 .work-thumb > img {
   width: 100%;
@@ -94,7 +112,7 @@
 .work-note {
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--glass-strong);
   font-size: 13px;
   font-weight: 600;
 }
@@ -156,7 +174,7 @@
   justify-content: center;
   gap: 12px;
   padding: clamp(24px, 4vw, 48px);
-  border-color: #dfe1fd;
+  border-color: var(--primary-border);
   background:
     radial-gradient(420px 280px at 100% 0%, rgba(75, 78, 232, 0.16), transparent 70%),
     var(--primary-soft);

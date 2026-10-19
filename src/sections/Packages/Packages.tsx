@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Icon } from '../../components/Icon/Icon'
 import { useGsap } from '../../hooks/useGsap'
+import { useTilt } from '../../hooks/useTilt'
 import { fadeUp } from '../../lib/motion'
 import './Packages.css'
 
@@ -44,6 +45,7 @@ export function Packages() {
     fadeUp('.section-head > *', root.current)
     fadeUp('.package', '.packages', 0.1)
   })
+  useTilt(root, '.package', 6)
 
   return (
     <section ref={root} className="section section-subtle" id="packages">

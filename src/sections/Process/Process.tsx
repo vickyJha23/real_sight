@@ -12,7 +12,9 @@ export function Process() {
     gsap
       .timeline({ scrollTrigger: { trigger: '.steps', start: 'top 85%' } })
       .from('.steps-line span', { scaleX: 0, duration: 1.4, ease: 'power2.inOut' }, 0)
-      .from('.step', { y: 24, opacity: 0, stagger: 0.12 }, 0.1)
+      .from('.step', { y: 32, opacity: 0, rotateX: 25, transformPerspective: 900, transformOrigin: '50% 100%', stagger: 0.18 }, 0.1)
+      // Each number spins over like a tossed coin as the line reaches it.
+      .from('.step-num', { rotateY: -540, scale: 0.4, transformPerspective: 400, duration: 1.2, ease: 'back.out(1.6)', stagger: 0.18 }, 0.15)
   })
 
   return (

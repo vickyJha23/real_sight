@@ -3,12 +3,12 @@ import { Icon } from '../../components/Icon/Icon'
 import { StorePreview } from '../../components/StorePreview/StorePreview'
 import { projects, sectors, type Project, type Sector } from '../../data/projects'
 import { useGsap } from '../../hooks/useGsap'
+import { useTilt } from '../../hooks/useTilt'
 import { fadeUp, gsap, prefersReducedMotion } from '../../lib/motion'
 import './Work.css'
 
 type Filter = 'All' | Sector
 const filters: Filter[] = ['All', ...sectors]
-const countFor = (f: Filter) => (f === 'All' ? projects.length : projects.filter((p) => p.sector === f).length)
 
 /** A gallery card: hovering the thumbnail scrolls through the whole page, like Wix's template gallery. */
 function WorkCard({ project: p }: { project: Project }) {
@@ -53,6 +53,7 @@ export function Work() {
     fadeUp('.section-head > *, .work-filters', root.current)
     fadeUp('.work-card', '.work-grid', 0.07)
   })
+  useTilt(root, '.work-thumb')
 
   function choose(f: Filter) {
     setFilter(f)
@@ -76,7 +77,6 @@ export function Work() {
           {filters.map((f) => (
             <button key={f} className={f === filter ? 'chip is-active' : 'chip'} aria-pressed={f === filter} onClick={() => choose(f)}>
               {f}
-              <span>{countFor(f)}</span>
             </button>
           ))}
         </div>

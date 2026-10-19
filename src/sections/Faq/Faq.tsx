@@ -35,6 +35,13 @@ const faqs = [
   },
 ]
 
+// FAQPage structured data, built from the same list so it always matches the page.
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+})
+
 export function Faq() {
   const root = useRef<HTMLElement>(null)
   const [open, setOpen] = useState(0)
@@ -51,6 +58,7 @@ export function Faq() {
 
   return (
     <section ref={root} className="section" id="faq">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchema }} />
       <div className="container faq">
         <div className="faq-intro">
           <span className="eyebrow">FAQ</span>
