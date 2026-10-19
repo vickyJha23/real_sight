@@ -1,0 +1,113 @@
+.devices {
+  position: relative;
+  /* Leave room on the right and bottom for the overlapping phone. */
+  padding: 0 7% 9% 0;
+}
+.devices-solo {
+  padding: 0;
+}
+.device-browser {
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.device-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--line);
+}
+.device-bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+.device-bar em {
+  flex: 1;
+  max-width: 300px;
+  margin: 0 auto;
+  translate: -20px 0;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-style: normal;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.device-screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-subtle);
+  overflow: hidden;
+}
+.device-screen > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.device-phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 24%;
+  padding: 6px;
+  border-radius: 26px;
+  background: #0b1220;
+  box-shadow: 0 30px 60px -20px rgba(11, 18, 32, 0.45), 0 0 0 1px rgba(11, 18, 32, 0.08);
+}
+.device-phone-screen {
+  position: relative;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+/* Speaker notch. */
+.device-phone-screen::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  left: 50%;
+  width: 34%;
+  height: 12px;
+  translate: -50% 0;
+  border-radius: 999px;
+  background: #0b1220;
+}
+.device-phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 520px) {
+  .device-phone {
+    padding: 4px;
+    border-radius: 16px;
+  }
+  .device-phone-screen {
+    border-radius: 12px;
+  }
+  .device-phone-screen::before {
+    height: 7px;
+    top: 4px;
+  }
+  .device-bar em {
+    translate: none;
+  }
+}

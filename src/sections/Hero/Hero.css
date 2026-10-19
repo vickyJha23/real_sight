@@ -1,0 +1,186 @@
+.hero {
+  position: relative;
+  padding: clamp(56px, 7vw, 88px) 0 clamp(48px, 6vw, 80px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Background: faint grid, an indigo glow, and the eye, all fading out at the edges. */
+.hero-bg {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 820px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(600px 360px at 50% 18%, rgba(75, 78, 232, 0.12), transparent 70%),
+    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 56px 56px,
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+}
+.hero-canvas {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  width: min(900px, 120vw);
+  height: 640px;
+  translate: -50% 0;
+  opacity: 0.45;
+}
+
+.hero-copy {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-sm);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: border-color 0.2s, color 0.2s;
+}
+.hero-badge:hover {
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+.hero-badge-tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+}
+.hero h1 {
+  margin-top: 24px;
+  font-size: clamp(40px, 6.4vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+/* The rotating word re-mounts on each change, which replays this entrance. */
+.hero-word {
+  display: inline-block;
+  background: linear-gradient(90deg, #4b4ee8, #7b5cf0 50%, #3f8ef5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.08em;
+  animation: hero-word-in 0.6s var(--ease) both;
+}
+@keyframes hero-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(6px);
+  }
+}
+.hero-sub {
+  max-width: 620px;
+  margin: 22px auto 0;
+  font-size: clamp(17px, 1.6vw, 19px);
+  color: var(--muted);
+}
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+.hero-trust {
+  margin-top: 26px;
+  font-size: 14px;
+  color: var(--faint);
+}
+.hero-trust b {
+  font-weight: 500;
+  color: var(--muted);
+}
+.hero-trust .sep {
+  margin: 0 8px;
+}
+
+/* ---------- device stage ---------- */
+.hero-stage {
+  max-width: 1080px;
+  margin: clamp(48px, 6vw, 72px) auto 0;
+  perspective: 1600px;
+}
+.hero-stage-inner {
+  display: grid;
+  transform-origin: 50% 0;
+}
+/* Slides stack in one grid cell and cross-fade. */
+.hero-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  pointer-events: none;
+}
+.hero-slide.is-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.hero-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 20px;
+  padding-right: 7%;
+}
+.hero-caption p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  font-size: 14.5px;
+}
+.hero-caption b {
+  font-weight: 600;
+}
+.hero-caption span {
+  color: var(--faint);
+}
+.hero-dots {
+  display: flex;
+  gap: 6px;
+}
+.hero-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--line-strong);
+  cursor: pointer;
+  transition: width 0.3s var(--ease), background 0.3s;
+}
+.hero-dots button.is-active {
+  width: 24px;
+  background: var(--primary);
+}
+
+@media (max-width: 720px) {
+  /* Smaller screens put the halo right under the text; keep it fainter there. */
+  .hero-canvas {
+    opacity: 0.28;
+  }
+  .hero-trust .sep {
+    margin: 0 5px;
+  }
+  .hero-caption {
+    padding-right: 0;
+  }
+}

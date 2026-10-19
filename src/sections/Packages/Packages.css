@@ -1,0 +1,89 @@
+.packages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.package {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--bg);
+  box-shadow: var(--shadow-sm);
+}
+.package.is-featured {
+  border: 2px solid var(--primary);
+  box-shadow: 0 24px 48px -24px rgba(75, 78, 232, 0.4);
+}
+.package-flag {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  translate: -50% 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.package h3 {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.package-for {
+  min-height: 3.2em;
+  margin-top: 6px;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+.package-price {
+  margin: 20px 0;
+  padding: 18px 0;
+  border-block: 1px solid var(--line);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.package-price small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--faint);
+}
+.package ul {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.package li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+}
+.package li svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--primary);
+}
+
+@media (max-width: 900px) {
+  .packages {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+    gap: 28px;
+  }
+  .package-for {
+    min-height: 0;
+  }
+}

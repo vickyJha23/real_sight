@@ -1,0 +1,29 @@
+.announce {
+  background: var(--dark);
+  color: #fff;
+  font-size: 13.5px;
+}
+.announce p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 10px;
+  padding: 9px var(--gutter);
+  text-align: center;
+}
+.announce-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.25);
+}
+.announce a {
+  font-weight: 600;
+  color: #c7c8ff;
+  transition: color 0.2s;
+}
+.announce a:hover {
+  color: #fff;
+}

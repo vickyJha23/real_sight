@@ -1,0 +1,85 @@
+.steps-wrap {
+  position: relative;
+}
+/* Line joining the step numbers; draws in from the left. */
+.steps-line {
+  position: absolute;
+  top: 20px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: var(--line);
+}
+.steps-line span {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+  transform-origin: left;
+}
+.steps {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.step {
+  text-align: center;
+}
+.step-num {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 0 0 6px var(--bg-subtle);
+}
+.step h3 {
+  margin-top: 18px;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+.step p {
+  max-width: 250px;
+  margin: 8px auto 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .steps-line {
+    display: none;
+  }
+  .steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+  }
+}
+@media (max-width: 520px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    column-gap: 16px;
+    text-align: left;
+  }
+  .step-num {
+    grid-row: span 2;
+  }
+  .step h3 {
+    margin-top: 8px;
+  }
+  .step p {
+    margin: 4px 0 0;
+    max-width: none;
+  }
+}
