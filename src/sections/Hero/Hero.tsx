@@ -64,7 +64,7 @@ export function Hero() {
         <div className="hero-copy">
           <a href="#work" className="hero-badge">
             <span className="hero-badge-tag">New</span>
-            100+ websites launched this week
+            100+ websites launched this year
             <Icon name="arrowUpRight" size={14} />
           </a>
           <h1>

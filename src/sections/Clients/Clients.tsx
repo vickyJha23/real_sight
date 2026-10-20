@@ -8,7 +8,7 @@ import './Clients.css'
 const regions = new Set(projects.filter((p) => p.sector !== 'Online stores').map((p) => p.location.split(',').pop()!.trim()))
 
 const stats = [
-  { value: '100+', label: 'Websites launched this week' },
+  { value: '100+', label: 'Websites launched this year' },
   { value: String(regions.size), label: 'States & UTs served' },
   { value: '100%', label: 'Custom code, no templates' },
 ]
