@@ -16,6 +16,9 @@ import poojaPlasticPage from '../assets/work/pooja-plastic-page.webp'
 import rootsRays from '../assets/work/roots-rays.webp'
 import rootsRaysMobile from '../assets/work/roots-rays-mobile.webp'
 import rootsRaysPage from '../assets/work/roots-rays-page.webp'
+import padmanabhan from '../assets/work/padmanabhan.webp'
+import padmanabhanMobile from '../assets/work/padmanabhan-mobile.webp'
+import padmanabhanPage from '../assets/work/padmanabhan-page.webp'
 
 /** Industry groups used by the work filter. */
 export const sectors = ['Manufacturing', 'Education', 'Agriculture', 'Online stores'] as const
@@ -41,6 +44,21 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    name: 'Padmanabhan Chemcon',
+    industry: 'Industrial flooring',
+    location: 'Gujarat',
+    sector: 'Manufacturing',
+    heroWord: 'flooring business',
+    summary:
+      'A multi-page site for an epoxy and PU flooring contractor, with a page for every solution and industry so factories and pharma plants can request a site inspection.',
+    highlights: ['Solution and industry pages', 'Project gallery from real sites', 'Quote, call and WhatsApp on every page'],
+    stack: ['React', 'React Router', 'Tailwind'],
+    image: padmanabhan,
+    mobile: padmanabhanMobile,
+    page: padmanabhanPage,
+    note: 'Launching soon',
+  },
   {
     name: 'Narmada Engineering Works',
     industry: 'Industrial fabrication',
