@@ -1,10 +1,27 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
 }
-.logo-word {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+.logo-img {
+  width: auto;
+  height: 36px;
+}
+.logo-on-dark {
+  display: none;
+}
+:root[data-theme='dark'] .logo-on-light {
+  display: none;
+}
+:root[data-theme='dark'] .logo-on-dark {
+  display: block;
+}
+.logo-full {
+  width: auto;
+  height: 56px;
+}
+
+@media (max-width: 520px) {
+  .logo-img {
+    height: 30px;
+  }
 }

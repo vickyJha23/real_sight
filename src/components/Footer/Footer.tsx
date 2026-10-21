@@ -10,7 +10,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Logo />
+            <Logo variant="full" />
             <p>Custom websites for manufacturers, coaching institutes, brands and online stores across India.</p>
           </div>
           <div>

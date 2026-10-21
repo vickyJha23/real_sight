@@ -33,7 +33,7 @@ export function Nav() {
   return (
     <header ref={header} className={open ? 'nav is-open' : 'nav'}>
       <div className="container nav-inner">
-        <a href="#top" aria-label="Real Sight home" onClick={close}>
+        <a href="#top" aria-label="Realsight home" onClick={close}>
           <Logo />
         </a>
         <nav id="nav-links" className="nav-links" aria-label="Main">
