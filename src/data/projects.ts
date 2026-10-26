@@ -91,7 +91,7 @@ export const projects: Project[] = [
     image: jakharia,
     mobile: jakhariaMobile,
     page: jakhariaPage,
-    url: 'https://jakharia.com',
+    url: 'https://jakhariabooks.com',
   },
   {
     name: 'Education Point Classes',

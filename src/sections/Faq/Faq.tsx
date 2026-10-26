@@ -7,7 +7,7 @@ import './Faq.css'
 const faqs = [
   {
     q: 'How much does a website cost?',
-    a: 'It depends on how many pages you need and what the site has to do, for example a catalogue or online payments. Tell us what you have in mind and we’ll send a clear, itemised quote.',
+    a: 'Plans start at ₹6,999 for a 4–5 page static website and go up to ₹34,999 for a 15–25 page dynamic website with an advanced admin panel. Domain, hosting and SSL for the first year are included. See the pricing section above or download our catalogue for the full list.',
   },
   {
     q: 'What do I need to give you to get started?',
